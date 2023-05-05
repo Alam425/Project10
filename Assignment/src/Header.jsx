@@ -7,7 +7,7 @@ const Header = () => {
             backgroundImage: `url(${'../src/assets/headerBG.jpg'})`,
             backgroundRepeat: 'no-repeat' ,
             backgroundSize: 'cover',
-            height: '400px'
+            height: '500px'
           }}><Navbar/>
         </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import Footer from './footer';
 
 const Blog = () => {
     const navigate = useNavigate();
@@ -40,6 +41,7 @@ const Blog = () => {
                 <button onClick={()=>goBack()} className="btn btn-ghost mx-auto">Go Back</button>
             </div>
         </div>
+        <Footer/>
         </div>
     );
 };
