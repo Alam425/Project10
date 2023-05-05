@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './footer';

@@ -3,7 +3,9 @@ import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './footer';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
-import app from './firebase.config';
+import app from './firebase.config';import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const [user, setUser] = useState(null);
@@ -32,6 +34,7 @@ const Login = () => {
                 console.log(result?.user?.displayName);
                 setUser(result.user);
                 navigate('/', { replace: true });
+                toast('Successfully logged in with google')
             })
             .catch((r) => { console.log(r.message); })
     }
