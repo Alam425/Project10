@@ -3,20 +3,20 @@ import Header from './Header';
 import Simplicity from './Simplicity';
 import Simplicy from './Simplicy';
 import Footer from './footer';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function App() {
   // useEffect(()=>{
-  //   fetch
+  //   fetch('')
   // },[])
 
   return (
     <>
       <Header />
-      {/* <Simplicy />
+      <Simplicy />
       <Simplicity />
       <Carousel />
-      <Footer /> */}
+      <Footer />
     </>
   )
 }
