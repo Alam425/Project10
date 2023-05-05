@@ -6,6 +6,9 @@ import Footer from './footer';
 import React from 'react';
 
 function App() {
+  // useEffect(()=>{
+  //   fetch
+  // },[])
 
   return (
     <>

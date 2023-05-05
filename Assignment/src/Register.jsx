@@ -36,8 +36,8 @@ const Register = () => {
                 <h1 className='text-4xl'>Register</h1>
                 <input className='m-3 p-3 border rounded' type="text" name="name" required placeholder='Your Name' /><br />
                 <input className='m-3 p-3 border rounded' type="email" name="email" required placeholder='Your Email' /><br />
-                {<><input className='m-3 p-3 border rounded' type="password" name="password" required placeholder='Your password' /><br /></> &&
-                <><input className='m-3 p-3 border rounded' type="password" name="confirmPassword" required placeholder='Your password' /><br /></>}
+                <input className='m-3 p-3 border rounded' type="password" name="password" required placeholder='Your password' /><br />
+                <input className='m-3 p-3 border rounded' type="password" name="confirmPassword" required placeholder='Your password' /><br />
                 <input className='m-3 p-3 border rounded' type="text" name="photoURL" placeholder='Your PhotoURL' />
                 <p>Already have an account?? <Link className='font-bold' to='/login'>Login</Link> now.</p>
                 <button className="btn btn-success" type='submit'>Submit</button>
