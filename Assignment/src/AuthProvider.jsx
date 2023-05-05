@@ -1,13 +1,20 @@
 import React, { createContext } from 'react';
+import app from './firebase.config';
+import { getAuth } from "firebase/auth";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
+    
+    const auth = getAuth(app);
 
-    const googleSignIn = 
+    // const
+
+    const googleSignIn = {
+    }
 
     const user = {
-
+        googleSignIn
     }
 
     return (
