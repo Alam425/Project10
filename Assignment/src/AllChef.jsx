@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Chef from './Chef';
 
 const AllChef = (chefs) => {
-    const [chef, setChef] = useState([]);
-    const chefDetail = chefs.chef.map(individualChef => individualChef);
-    setChef(chefDetail);
+    const chefsDetail = chefs.chef.map(individualChef => individualChef);
     return (
-        <div>
+        <div className='grid justify-center items-center gap-5 my-10'>
             {
-                // <Chef chef={chef} ></Chef>
+                chefsDetail.map(chef => <Chef chef={chef}></Chef>)
             }
         </div>
     );

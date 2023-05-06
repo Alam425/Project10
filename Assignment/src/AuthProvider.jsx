@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
 
     const [ allRecipes, setAllRecipes ] = useState('');
     useEffect(() => {
-        fetch('https://assignment10-henna.vercel.app/allRecipes/')
+        fetch('https://assignment10-alam425.vercel.app/allRecipes/')
             .then(res => res.json())
             .then(data => setAllRecipes(data))
     }, [])

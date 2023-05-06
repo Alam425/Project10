@@ -12,6 +12,7 @@ import Register from './Register';
 import Login from './Login';
 import Error from './Error';
 import EmailLogin from './EmailLogin';
+import RecipeCard from './RecipeCard';
 
 const router = createBrowserRouter([
   {
@@ -31,8 +32,9 @@ const router = createBrowserRouter([
     path: 'emailLogin',
     element: <EmailLogin/>
   },{
-    // path: '',
-    // element: </>
+    path: ':genre/:id',
+    element: <RecipeCard/>,
+    loader: async ({params})=> { return await fetch(`https://assignment10-alam425.vercel.app/allRecipes/${params.genre}/${params.id}`);}
   },
   {
     path: '*',

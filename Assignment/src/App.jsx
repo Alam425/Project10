@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-      <Header searchBox={()=>callBack()} />
-      {/* <AllChef chef={chef} ></AllChef> */}
+      <Header searchBox={callBack} />
+      <AllChef chef={chef} ></AllChef>
       <Simplicy />
       <Simplicity />
       <Carousel />
