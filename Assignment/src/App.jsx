@@ -1,17 +1,18 @@
+import AllRecipes from './AllRecipes';
 import Carousel from './Carousel';
 import Header from './Header';
 import Simplicity from './Simplicity';
 import Simplicy from './Simplicy';
 import Footer from './footer';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function App() {
-  // useEffect(()=>{
-  //   fetch('')
-  // },[])
 
   return (
     <>
+    {/* <>{
+      allRecipes.map(r => <AllRecipes key={r.id} recipe={r}></AllRecipes>)
+    }</> */}
       <Header />
       <Simplicy />
       <Simplicity />

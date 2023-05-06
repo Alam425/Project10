@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Github = () => {
+const RecipeCard = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Github = () => {
     );
 };
 
-export default Github;
+export default RecipeCard;

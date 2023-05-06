@@ -12,7 +12,6 @@ import Register from './Register';
 import Login from './Login';
 import Error from './Error';
 import EmailLogin from './EmailLogin';
-import ForgotPassword from './ForgotPassword';
 
 const router = createBrowserRouter([
   {

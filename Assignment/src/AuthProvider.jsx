@@ -6,13 +6,13 @@ import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebas
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null); 
+    const [user, setUser] = useState(null);
     const logOut = () => {
         signOut(auth)
-        .then(() => { console.log('logged out'); })
-        .catch((error) => { error.message });
+            .then(() => { console.log('logged out'); })
+            .catch((error) => { error.message });
     }
     const provider = new GoogleAuthProvider();
 
@@ -37,7 +37,15 @@ const AuthProvider = ({children}) => {
             .catch((r) => { console.log(r.message); })
     }
 
-    useEffect(()=>{
+    const [allRecipes, setAllRecipes] = useState('');
+    useEffect(() => {
+        fetch('https://assignment10-henna.vercel.app/allRecipes/')
+            .then(res => res.json())
+            .then(data => setAllRecipes(data))
+        console.log(allRecipes[0]);
+    }, [])
+
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             console.log('Auth state changed', user);
         });
@@ -45,10 +53,10 @@ const AuthProvider = ({children}) => {
             unsubscribe();
             setUser(user);
         }
-    },[])
+    }, [])
 
     const use = {
-        logOut, auth, user, googleSignIn, githubSignIn
+        logOut, auth, user, googleSignIn, githubSignIn, allRecipes
     }
 
     return (

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AllRecipes = () => {
+const AllRecipes = ({r}) => {
     return (
         <div>
-            
+            <p>{r}</p>
         </div>
     );
 };
