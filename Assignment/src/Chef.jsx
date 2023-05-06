@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Chef = () => {
+const Chef = (chef) => {
+    console.log(chef);
     return (
         <div>
             

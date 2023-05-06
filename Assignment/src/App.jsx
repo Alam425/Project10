@@ -1,5 +1,3 @@
-// import AllChef from './AllChef';
-import e from 'express';
 import AllChef from './AllChef';
 import { AuthContext } from './AuthProvider';
 import Carousel from './Carousel';
@@ -7,25 +5,22 @@ import Header from './Header';
 import Simplicity from './Simplicity';
 import Simplicy from './Simplicy';
 import Footer from './footer';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 
 function App() {
   const {allRecipes} = useContext(AuthContext);
-  const callBack = (e) => {
-    console.log(e.target.search.value);
-    // const chef = allRecipes.filter(chef => {
-    //   chef.genre == e.target.search.value;
-    // })
+  const [chef, setChefs] = useState([]);
+  const callBack = ( e ) => {
+    let ee = e.target.search.value;
+    let chefs = allRecipes.filter(chef => (chef.genre).toLowerCase() === (ee).toLowerCase());
+    setChefs(chefs);
   }
 
   return (
     <>
-      <Header searchBox={callBack} />
-      {
-        
-      }
-      {/* <AllChef allrecipes={chef} ></AllChef> */}
+      <Header searchBox={()=>callBack()} />
+      {/* <AllChef chef={chef} ></AllChef> */}
       <Simplicy />
       <Simplicity />
       <Carousel />

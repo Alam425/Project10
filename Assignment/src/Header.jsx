@@ -15,8 +15,8 @@ const Header = (props) => {
             height: '500px'
         }}><Navbar />
             <div className='flex justify-center items-center'>
-                <form>
-                    <input onKeyUp={search} type="text" name="search" className='mt-48 p-3 rounded-lg' placeholder='Search Chef By Country' />
+                <form onSubmit={search}>
+                    <input type="text" name="search" className='mt-48 p-3 rounded-lg' placeholder='Search Chef By Country with correct spelling please' />
                     <button type="submit" className='btn btn-info'>Search</button>
                 </form>
             </div>

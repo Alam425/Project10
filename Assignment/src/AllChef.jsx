@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Chef from './Chef';
 
-const AllChef = ({allrecipes}) => {
-    console.log(allrecipes);
+const AllChef = (chefs) => {
+    const [chef, setChef] = useState([]);
+    const chefDetail = chefs.chef.map(individualChef => individualChef);
+    setChef(chefDetail);
     return (
         <div>
-            {/* <p>{r}</p> */}
+            {
+                // <Chef chef={chef} ></Chef>
+            }
         </div>
     );
 };
