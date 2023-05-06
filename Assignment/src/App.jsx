@@ -1,19 +1,31 @@
-import AllRecipes from './AllRecipes';
+// import AllChef from './AllChef';
+import e from 'express';
+import AllChef from './AllChef';
+import { AuthContext } from './AuthProvider';
 import Carousel from './Carousel';
 import Header from './Header';
 import Simplicity from './Simplicity';
 import Simplicy from './Simplicy';
 import Footer from './footer';
-import React from 'react';
+import React, { useContext } from 'react';
+
 
 function App() {
+  const {allRecipes} = useContext(AuthContext);
+  const callBack = (e) => {
+    console.log(e.target.search.value);
+    // const chef = allRecipes.filter(chef => {
+    //   chef.genre == e.target.search.value;
+    // })
+  }
 
   return (
     <>
-    {/* <>{
-      allRecipes.map(r => <AllRecipes key={r.id} recipe={r}></AllRecipes>)
-    }</> */}
-      <Header />
+      <Header searchBox={callBack} />
+      {
+        
+      }
+      {/* <AllChef allrecipes={chef} ></AllChef> */}
       <Simplicy />
       <Simplicity />
       <Carousel />

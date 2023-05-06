@@ -14,14 +14,13 @@ const AuthProvider = ({ children }) => {
             .then(() => { console.log('logged out'); })
             .catch((error) => { error.message });
     }
-    const provider = new GoogleAuthProvider();
 
+    const provider = new GoogleAuthProvider();
     const GitProvider = new GithubAuthProvider();
 
     const googleSignIn = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result?.user?.displayName);
                 setUser(result.user);
             })
             .catch((r) => { console.log(r.message); })
@@ -30,34 +29,28 @@ const AuthProvider = ({ children }) => {
     const githubSignIn = () => {
         signInWithPopup(auth, GitProvider)
             .then((result) => {
-                console.log(result?.user?.displayName || 'Null');
                 setUser(result.user);
-                alert('Successfully logged in with google')
             })
             .catch((r) => { console.log(r.message); })
     }
 
-    const [allRecipes, setAllRecipes] = useState('');
+    const [ allRecipes, setAllRecipes ] = useState('');
     useEffect(() => {
         fetch('https://assignment10-henna.vercel.app/allRecipes/')
             .then(res => res.json())
             .then(data => setAllRecipes(data))
-        console.log(allRecipes[0]);
     }, [])
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log('Auth state changed', user);
-        });
+        const unsubscribe = onAuthStateChanged(auth, loggedUser => {setUser(loggedUser);});
         return () => {
             unsubscribe();
-            setUser(user);
         }
     }, [])
 
     const use = {
         logOut, auth, user, googleSignIn, githubSignIn, allRecipes
-    }
+    };
 
     return (
         <AuthContext.Provider value={use}>

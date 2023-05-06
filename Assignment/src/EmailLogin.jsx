@@ -14,9 +14,9 @@ const EmailLogin = () => {
     const signIn = (e) => {
         e.preventDefault();
         const auth = getAuth(app);
-        const password = e.target.value;
-        const email = e.target.value;
-        signInWithEmailAndPassword(auth, password, email)
+        const password = e.target.password.value;
+        const email = e.target.email.value;
+        signInWithEmailAndPassword(auth, email, password)
             .then((e) => {
                 console.log(e.user);
                 navigate('/', { replace: true });
