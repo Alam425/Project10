@@ -6,7 +6,7 @@ const Ingrediant = (ingredient) => {const {name, quantity} = ingredient || ingre
         <div className="card-body">
             <h2 className="card-title">Ingredient Name: {name}</h2>
             <h2 className="card-title">Quantity: {quantity}</h2>
-            <Ingrediant ingredient={ingredient} ></Ingrediant>
+            {/* <Ingrediant ingredient={ingredient} ></Ingrediant> */}
         </div>
     </div>
     );

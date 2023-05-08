@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,11 +12,11 @@ import Login from './Login';
 import Error from './Error';
 import EmailLogin from './EmailLogin';
 import RecipeCard from './RecipeCard';
-
+import Home from './Home';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />
   },
   {
     path: "blog",
@@ -32,9 +31,9 @@ const router = createBrowserRouter([
     path: 'emailLogin',
     element: <EmailLogin/>
   },{
-    path: ':genre/:id',
+    path: 'recipes/:genre/:id',
     element: <RecipeCard/>,
-    loader: async ({params})=> { return await fetch(`https://assignment10-alam425.vercel.app/allRecipes/${params.genre}/${params.id}`);}
+    loader: ({params}) => fetch(`https://assignment10-alam425.vercel.app/recipes/genre/${params.id}`)
   },
   {
     path: '*',

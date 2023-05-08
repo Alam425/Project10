@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const logOut = () => {
         signOut(auth)
-            .then(() => { console.log('logged out'); })
+            .then(() => { console.log('Successfully Logged out'); })
             .catch((error) => { error.message });
     }
 
@@ -24,10 +24,10 @@ const AuthProvider = ({ children }) => {
                 setUser(result.user);
             })
             .catch((r) => { console.log(r.message); })
-    }
-
-    const githubSignIn = () => {
-        signInWithPopup(auth, GitProvider)
+        }
+        
+        const githubSignIn = () => {
+            signInWithPopup(auth, GitProvider)
             .then((result) => {
                 setUser(result.user);
             })
@@ -36,9 +36,11 @@ const AuthProvider = ({ children }) => {
 
     const [ allRecipes, setAllRecipes ] = useState('');
     useEffect(() => {
-        fetch('https://assignment10-alam425.vercel.app/allRecipes/')
+        fetch('https://assignment10-alam425.vercel.app/recipes')
             .then(res => res.json())
-            .then(data => setAllRecipes(data))
+            .then(data => {
+                setAllRecipes(data);
+            })
     }, [])
 
     useEffect(() => {
