@@ -8,7 +8,7 @@
 
 
 Here is the live site link:
-https://assignment10-206f3.web.app
+https://assignment10-206f3.web.app/
 
 repo link:
 https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-Alam425/blob/main/Assignment/src/RecipeCard.jsx

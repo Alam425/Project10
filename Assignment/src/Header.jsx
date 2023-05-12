@@ -15,7 +15,7 @@ const Header = (props) => {
 
     return (
         <div style={{
-            backgroundImage: `url(${'https://ibb.co/yNqgVG7'})`,
+            backgroundImage: `url(${'https://i.ibb.co/HKqGX13/headerBG.jpg'})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             height: '500px'

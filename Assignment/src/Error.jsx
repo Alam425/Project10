@@ -6,7 +6,7 @@ const Error = () => {
     return (
         <div>
             <Navbar/>
-            <img src="https://ibb.co/LrrDtDR" alt="Error Image"/>
+            <img src="https://i.ibb.co/nBBqcqm/error.webp" alt="Error Image"/>
             <Footer/>
         </div>
     );

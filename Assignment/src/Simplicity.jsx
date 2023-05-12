@@ -8,7 +8,7 @@ const Simplicity = () => {
                 <p>With the GloriaFood app, you can now accept online food orders from your own device... with just one tap of the screen.<br/>Simply install our free order taking app for Android or iOS, on your own smartphone, tablet or iPad to get started.</p>
             </div>
             <div>
-                <img src="https://ibb.co/DYT1jwY" alt="" />
+                <img src="https://i.ibb.co/0KvnzYK/lefty.webp" alt="" />
             </div>
         </div>
     );
