@@ -12,11 +12,11 @@ import Login from './Login';
 import Error from './Error';
 import EmailLogin from './EmailLogin';
 import RecipeCard from './RecipeCard';
-import Home from './Home';
+import App from './App';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <App />
   },
   {
     path: "blog",

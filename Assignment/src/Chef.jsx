@@ -1,13 +1,13 @@
+import { Link} from 'react-router-dom';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import RecipeCard from './RecipeCard';
 
-const Chef = (chef) => {
-    const { name, image, years_of_experience, likes, number_of_recipes, id } = chef.chef; 
-    const {ids} = useParams();
+const Chef = ({chef}) => {
+    const { name, image, years_of_experience, likes, number_of_recipes, id } = chef; 
+    console.log(chef);
+    // let id = ids;
     return (
         <div>
-            {chef.chef ?
+            {chef ?
                 <div className="card card-compact w-96 bg-base-100 shadow-xl">
                     <img src={image} alt={name} />
                     <div className="card-body">

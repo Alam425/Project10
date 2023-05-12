@@ -22,7 +22,7 @@ const Header = (props) => {
         }}>
             <Navbar />
             <div>
-                <form onSubmit={() => search()} className='flex mx-auto justify-center items-center gap-0'>
+                <form onSubmit={search  } className='flex mx-auto justify-center items-center gap-0'>
                     <div>
                         <input type="text" style={{ width: '75vw' }} name="search" className='mt-16 p-3 mr-0 rounded-lg' placeholder='Search Chef By Country with correct spelling' />
                     </div><br />

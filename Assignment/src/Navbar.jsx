@@ -18,26 +18,27 @@ const Navbar = () => {
                             <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/'>Home</ActiveLink></li>
                             <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/blog'>Blog</ActiveLink></li>
                             {user ?
-                            <>
-                                <button className='m-1 rounded-md text-center btn btn-success bg-slate-200' onClick={() => logOut()}>LogOut<br />
-                                <img className='w-8 h-8 rounded-lg' src={user.photoURL} alt={user.displayName} /><br />
-                                <span className='m-1 rounded-md text-center font-bold text-slate-600 bg-slate-200'>{user.displayName}</span>
-                                 </button> </>:
-                                <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/login'>Login</ActiveLink></li>}
-                            <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/register'>Register</ActiveLink></li>
+                                <>
+                                    <button className='m-1 rounded-md text-center btn btn-success bg-slate-200' onClick={() => logOut()}>LogOut<br />
+                                        <img className='w-8 h-8 rounded-lg' src={user.photoURL} alt={user.displayName} /><br />
+                                        <span className='m-1 rounded-md text-center font-bold text-slate-600 bg-slate-200'>{user.displayName}</span>
+                                    </button> </> : <>
+                                    <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/login'>Login</ActiveLink></li>
+                                    <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/register'>Register</ActiveLink></li></>}
                         </ul>}
                     <button onClick={() => setIsOpen(!isOpen)} className='sm:hidden'>{isOpen ? <FaMixer /> : <FaBars />} </button>
                 </div>
 
                 <div className="flex-none m-0 hidden sm:block">
                     <ul className="menu menu-horizontal px-1 text-lg m-0">
-                        <li><ActiveLink to='/'>Home</ActiveLink></li>
-                        <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
+                        <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/'>Home</ActiveLink></li>
+                        <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/blog'>Blog</ActiveLink></li>
                         {(user) ?
-                            <><img className='w-8 h-8 rounded-lg' src={user.photoURL} alt={user.displayName} /><br/> <span className='font-bold text-slate-600'>{user.displayName}</span><br />
+                            <><img className='w-8 h-8 rounded-lg' src={user.photoURL} alt={user.displayName} /><br /> <span className='font-bold text-slate-600'>{user.displayName}</span><br />
                                 <button onClick={() => logOut()}>LogOut</button></> :
-                            <li><ActiveLink to='/login'>Login</ActiveLink></li>}
-                        <li><ActiveLink to='/register'>Register</ActiveLink></li>
+                            <>
+                                <li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/login'>Login</ActiveLink></li><li className='m-1 rounded-md text-center bg-slate-200'><ActiveLink to='/register'>Register</ActiveLink></li>
+                            </>}
                     </ul>
                 </div>
             </div>
