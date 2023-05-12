@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },{
     path: 'recipes/:genre/:id',
     element: <RecipeCard/>,
-    loader: ({params}) => fetch(`https://assignment10-alam425.vercel.app/recipes/genre/${params.id}`)
+    loader: ({params}) => fetch(`https://assignment10-alam425.vercel.app/recipes/${params.genre}/${params.id}`)
   },
   {
     path: '*',

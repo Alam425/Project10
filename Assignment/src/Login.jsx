@@ -31,7 +31,7 @@ const Login = () => {
                     <button onClick={() => google()} className="p-5 me-5 btn btn-secondary">Google</button>
                     <button onClick={() => github()} className="p-5 me-5 btn btn-accent">Github</button>
                 </div>
-                <div className="mx-auto">
+                <div className="mx-auto w-80">
                     <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
                 </div>
                 <Footer />

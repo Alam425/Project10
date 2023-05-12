@@ -13,9 +13,12 @@ function App() {
   const callBack = (e) => {
     let ee = e.target.search.value;
     let eToLowerCase = ee.toLowerCase();
-    let availableChefs = allRecipes.filter(chef => chef.genre === eToLowerCase);
+    let availableChefs = allRecipes.filter(chef => eToLowerCase === chef.genre);
+    // if(eToLowerCase !== availableChefs.genre){
+    //   alert('Search does not match any Country-name');
+    //   return;
+    // }
     setChefs(availableChefs);
-    console.log(chefs);
   }
   return (
     <>

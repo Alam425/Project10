@@ -59,7 +59,7 @@ const Register = () => {
             </form>
 
 
-            <div className="mx-auto">
+            <div className="mx-auto w-80">
                 <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
             </div>
             <Footer/>

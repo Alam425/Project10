@@ -44,7 +44,7 @@ const EmailLogin = () => {
                 <p>New here?? <Link className='font-bold' to='/register'>Register</Link> now.</p>
                 <button type="submit" className='btn btn-success'>Submit</button>
             </form>
-            <div className="mx-auto">
+            <div className="mx-auto w-80">
                 <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
             </div>
             <Footer />

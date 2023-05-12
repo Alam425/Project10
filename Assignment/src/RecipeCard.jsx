@@ -1,12 +1,12 @@
 import React from 'react';
 import Recipe from './Recipe';
-import { useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './footer';
 
-const RecipeCard = (chef) => {
-    let { genre, id, image, name, bio, likes, number_of_recipes, years_of_experience, recipes } = chef?.chef;
-    console.log(chef?.chef?.genre);
+const RecipeCard = () => {
+    const chef = useLoaderData();
+    let { genre, id, image, name, bio, likes, number_of_recipes, years_of_experience, recipes } = chef;
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
@@ -14,7 +14,7 @@ const RecipeCard = (chef) => {
     return (
         <div>
             <Navbar/>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
                 <img src={image} alt="" />
                 <div className="card-body">
                     <h2 className="card-title">Genre: {genre}</h2>
@@ -28,7 +28,7 @@ const RecipeCard = (chef) => {
                     }
                 </div>
             </div>
-                <div className="mx-auto">
+                <div className="mx-auto w-80">
                     <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
                 </div>
             <Footer/>

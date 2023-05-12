@@ -37,7 +37,7 @@ const Blog = () => {
                     A custom Hook is a JavaScript function whose name starts with ”use” and that may call other Hooks. <br />
                     I'll create a custom hook as, it can be reused easily, which makes the code cleaner and reduces the time to write the code. It also enhances the rendering speed of the code as a custom hook does not need to be rendered again and again while rendering the whole code.</p>
             </div>
-            <div className="mx-auto">
+            <div className="mx-auto w-80">
                 <button onClick={()=>goBack()} className="btn btn-ghost mx-auto">Go Back</button>
             </div>
         </div>
