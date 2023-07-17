@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Navbar from './Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './footer';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { AuthContext } from './AuthProvider';
 
 const Register = () => {
@@ -19,9 +19,9 @@ const Register = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const name = e.target.name.value;
-        const password = e.target.Password.value;
+        const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
-        const photoURL = e.target.photoURL.value;
+        const photo = e.target.photoURL.value;
 
         if((password.length && confirmPassword.length) < 6 ){
             setError2('Password length must be of 06 digits!!');
@@ -32,9 +32,15 @@ const Register = () => {
             return;
         }
 
-        createUserWithEmailAndPassword(auth, email, password, photoURL, name)
+        createUserWithEmailAndPassword(auth, email, confirmPassword)
         .then(result => {
             console.log(result?.user);
+            updateProfile(auth.currentUser, {
+                photoURL: photo, displayName: name
+            }).then(() => {               
+              }).catch((error) => {
+                console.log(error.message);
+              });
             e.target.reset();
             navigate('/', { replace: true });
         })
@@ -54,7 +60,7 @@ const Register = () => {
                 <input className='m-3 p-3 border rounded' type="password" name="password" required placeholder='Your password' /><br />
                 <input className='m-3 p-3 border rounded' type="password" name="confirmPassword" required placeholder='Your password' /><br />
                 <input className='m-3 p-3 border rounded' type="text" name="photoURL" placeholder='Your PhotoURL' />
-                <p>Already have an account?? <Link className='font-bold' to='/login'>Login</Link> now.</p>
+                <p className='text-lg mb-2 font-semibold text-slate-700'>Already have an account?? <Link className='text-xl font-bold text-slate-400' to='/login' >Login</Link> Now.</p>
                 <button className="btn btn-success" type='submit'>Submit</button>
             </form>
 

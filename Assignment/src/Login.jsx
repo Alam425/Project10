@@ -12,12 +12,12 @@ const Login = () => {
         navigate(-1);
     }
 
-    const google = () =>{
+    const google = () => {
         googleSignIn();
         navigate('/', { replace: true });
     }
 
-    const github = () =>{
+    const github = () => {
         githubSignIn();
         navigate('/', { replace: true });
     }
@@ -31,13 +31,16 @@ const Login = () => {
                     <button onClick={() => google()} className="p-5 me-5 btn btn-secondary">Google</button>
                     <button onClick={() => github()} className="p-5 me-5 btn btn-accent">Github</button>
                 </div>
+                <div className='ms-10 p-5'>
+                    <p className='text-lg font-semibold text-slate-700'>New here? <Link className='text-xl font-bold text-slate-400' to='/register' >Register</Link> Now.</p>
+                </div>
                 <div className="mx-auto w-80">
-                    <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
+                    <button onClick={goBack} className="btn btn-ghost mx-auto">Go Back</button>
                 </div>
                 <Footer />
             </div>
         </div>
-            );
+    );
 };
 
-            export default Login;
+export default Login;

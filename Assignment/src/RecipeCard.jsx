@@ -13,25 +13,27 @@ const RecipeCard = () => {
     }
     return (
         <div>
-            <Navbar/>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
-                <img src={image} alt="" />
+            <Navbar />
+            <div className="card w-full text-slate-700 shadow-xl mx-auto grid sm:grid-cols-2 gap-5 bg-slate-200">
                 <div className="card-body">
-                    <h2 className="card-title">Genre: {genre}</h2>
+                    <img className='rounded-xl' src={image} alt={name} />
+                    <h2 className='card-title'>Genre: <span className='uppercase'>{genre}</span></h2>
                     <h2 className="card-title">Name: {name}</h2>
                     <h2 className="card-title">Bio: {bio}</h2>
-                    <p>Likes: {likes}</p>
-                    <p>Years Of Experience: {years_of_experience}</p>
-                    <p>Total Recipes: {number_of_recipes}</p>
+                    <h2 className="card-title">Likes: {likes}</h2>
+                    <h2 className="card-title">Years Of Experience: {years_of_experience}</h2>
+                    <h2 className="card-title">Total Recipes: {number_of_recipes}</h2>
+                </div>
+                <div className=' grid grid-cols-1 gap-5 m-5'>
                     {
-                        recipes?.map(recipe => <Recipe recipe={recipe} key={id} ></Recipe> )
+                        recipes?.map(recipe => <Recipe recipe={recipe} key={id} ></Recipe>)
                     }
                 </div>
             </div>
-                <div className="mx-auto w-80">
-                    <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
-                </div>
-            <Footer/>
+            <div className="mx-auto p-20 w-80">
+                <button onClick={() => goBack()} className="btn btn-ghost mx-auto">Go Back</button>
+            </div>
+            <Footer />
         </div>
     );
 };

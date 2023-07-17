@@ -9,6 +9,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    
     const logOut = () => {
         signOut(auth)
             .then(() => { console.log('Successfully Logged out'); })
@@ -36,7 +37,7 @@ const AuthProvider = ({ children }) => {
 
     const [ allRecipes, setAllRecipes ] = useState('');
     useEffect(() => {
-        fetch('https://assignment10-alam425.vercel.app/recipes')
+        fetch('https://assignment10-henna.vercel.app/recipes')
             .then(res => res.json())
             .then(data => {
                 setAllRecipes(data);
@@ -44,7 +45,9 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, loggedUser => {setUser(loggedUser);});
+        const unsubscribe = onAuthStateChanged(auth, loggedUser => { 
+            setUser(loggedUser);
+        });
         return () => {
             unsubscribe();
         }

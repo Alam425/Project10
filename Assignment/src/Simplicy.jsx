@@ -2,7 +2,7 @@ import React from 'react';
 
 const Simplicy = () => {
     return (
-        <div className='my-auto mx-28 grid my-20 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-between align-center gap-3'>
+        <div className='mx-28 grid my-20 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-between align-center gap-3'>
             <div>
                 <img src="https://i.ibb.co/7C03T39/righty.webp" alt="" />
             </div>

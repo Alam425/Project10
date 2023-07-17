@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 
-const Header = (props) => {
-    // const [loading, setLoading] = useState(true);
-    // const [loaded, setLoaded] = useState('');
+const Header = props => {
+
     const search = (e) => {
         e.preventDefault();
         props.searchBox(e);
-        // setLoading(loading);
-        // if(loading){
-        //     setLoaded('Loading');
-        // }
+    }
+
+    const nameSearch = e => {
+        e.preventDefault();
+        props.nameSearchBox(e);
     }
 
     return (
@@ -21,17 +21,29 @@ const Header = (props) => {
             height: '500px'
         }}>
             <Navbar />
-            <div>
-                <form onSubmit={search  } className='flex mx-auto justify-center items-center gap-0'>
-                    <div>
-                        <input type="text" style={{ width: '75vw' }} name="search" className='mt-16 p-3 mr-0 rounded-lg' placeholder='Search Chef By Country with correct spelling' />
+            <div className='flex mx-auto justify-center items-center gap-20'>
+                <form onSubmit={search} className=''>
+                    <div className='mt-5'>
+                        <input type="text" style={{ width: '40vw' }} name="search" className='p-3 mr-0 rounded-lg' placeholder='Search Chef By Country' />
                     </div><br />
-                    <div>
-                        <button type="submit" className='mt-16 ml-0 btn btn-info text-center mx-auto'>Search</button>
+                    <div className='mx-auto w-20'>
+                        <button type="submit" className='m-0 btn btn-info text-center mx-auto'>Search</button>
+                    </div>
+                </form>
+
+                <form onSubmit={nameSearch} >
+                    <div className='mt-5'>
+                        <input type="text" style={{ width: '40vw' }} name="search" className='p-3 mr-0 rounded-lg' placeholder='Search Chef By Name' />
+                    </div><br />
+                    <div className='mx-auto w-20'>
+                        <button type="submit" className='m-0 btn btn-info text-center mx-auto'>Search</button>
                     </div>
                 </form>
             </div>
-            {/* <div className="flex justify-center items-center text-2xl"><p>{loaded}</p></div> */}
+            {
+                props.error &&
+                <p className="text-red-600 bg-slate-200 p-5 m-5 mx-auto text-center text-5xl font-semibold">0ops, Search Mismatched....!!</p>
+            }
         </div>
     );
 };
