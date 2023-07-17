@@ -9,7 +9,8 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    
+    const [loading, setLoading] = useState(true);
+
     const logOut = () => {
         signOut(auth)
             .then(() => { console.log('Successfully Logged out'); })
@@ -23,19 +24,21 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 setUser(result.user);
-            })
-            .catch((r) => { console.log(r.message); })
-        }
-        
-        const githubSignIn = () => {
-            signInWithPopup(auth, GitProvider)
-            .then((result) => {
-                setUser(result.user);
+                setLoading(true);
             })
             .catch((r) => { console.log(r.message); })
     }
 
-    const [ allRecipes, setAllRecipes ] = useState('');
+    const githubSignIn = () => {
+        signInWithPopup(auth, GitProvider)
+            .then((result) => {
+                setUser(result.user);
+                setLoading(true);
+            })
+            .catch((r) => { console.log(r.message); })
+    }
+
+    const [allRecipes, setAllRecipes] = useState('');
     useEffect(() => {
         fetch('https://assignment10-henna.vercel.app/recipes')
             .then(res => res.json())
@@ -45,8 +48,9 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, loggedUser => { 
+        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             setUser(loggedUser);
+            setLoading(false);
         });
         return () => {
             unsubscribe();
@@ -54,7 +58,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const use = {
-        logOut, auth, user, googleSignIn, githubSignIn, allRecipes
+        logOut, auth, user, googleSignIn, githubSignIn, allRecipes, loading
     };
 
     return (

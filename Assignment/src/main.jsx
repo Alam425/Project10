@@ -13,6 +13,7 @@ import Error from './Error';
 import EmailLogin from './EmailLogin';
 import RecipeCard from './RecipeCard';
 import App from './App';
+import PrivateRoute from './PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
     element: <EmailLogin/>
   },{
     path: 'recipes/:genre/:id',
-    element: <RecipeCard/>,
+    element: <PrivateRoute><RecipeCard/></PrivateRoute>,
     loader: ({params}) => fetch(`https://assignment10-henna.vercel.app/recipes/${params.genre}/${params.id}`)
   },
   {
